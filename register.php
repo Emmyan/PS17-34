@@ -3,13 +3,12 @@
   
   $name = $_POST["name"];
   $username = $_POST["username"];
-  $contact = $_POST["contact"];
-  $address = $_POST["address"];
+  $gender = $_POST["gender"];
+  $phone = $_POST["phone"];
   $age = $_POST["age"];
-  $sex = $_POST["sex"];
   $password = $_POST["password"];
   
-  $sql_query = "insert into user_info values ('$name','$username', '$contact','$address', '$age', '$sex','$password');";
+  $sql_query = "insert into user_info values ('$name','$username','$gender', '$phone', '$age', '$password');";
   
   if (mysqli_query($con,$sql_query))
   {
