@@ -1,0 +1,45 @@
+package com.example.emmy.pakasa;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class RegisterActivity extends AppCompatActivity {
+    //create variable
+    EditText regName, regUsername, regGender, regPhone, regAge, regPass;
+    Button bRegister;
+    //strg var
+    String name, username, gender, phone, age, password;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+        //intialize
+        regName = (EditText)findViewById(R.id.etRegName);
+        regUsername = (EditText)findViewById(R.id.etRegUname);
+        regGender = (EditText)findViewById(R.id.etRegGender);
+        regPhone = (EditText)findViewById(R.id.etPhone);
+        regAge = (EditText)findViewById(R.id.etAge);
+        regPass = (EditText)findViewById(R.id.etRegPass);
+        bRegister = (Button)findViewById(R.id.bRegister);
+
+    }
+
+    public void Register(View view) {
+        //initialize strg var
+        name = regName.getText().toString();
+        username = regUsername.getText().toString();
+        gender = regGender.getText().toString();
+        phone = regPhone.getText().toString();
+        age = regAge.getText().toString();
+        password = regPass.getText().toString();
+        //pass info to bg
+        String method = "register";
+        BackgroundTask backgroundTask = new BackgroundTask(this);
+        backgroundTask.execute(method, name, username, gender, phone, age, password);
+        //close reg act
+        finish();
+    }
+}
