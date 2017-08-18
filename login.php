@@ -1,7 +1,7 @@
 <?php
   require "init.php";
   
-  $username = $_POST["loginname"];
+  $username = $_POST["username"];
   $password = $_POST["loginpassword"];
   
   $sql_query = "select name from user_info where username like '$username' and password like '$password';";
